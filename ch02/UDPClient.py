@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 """
 @Script of UDPClient
-@File : UDPClient.py.py
+@File : UDPClient.py
 @Time : 2021/12/16 9:19
 @copyright : Je Zhang
 @author : Je Zhang
@@ -28,3 +28,8 @@ class UDPClient:
         modified_message, server_address = self.clientSocket.recvfrom(__BUF_SIZE__)  # 从服务器接收信息
         print(modified_message.decode())  # 将从服务器收到的bytes转换为string
         self.clientSocket.close()
+
+
+if __name__ == '__main__':
+    print('hi client start')
+    UDPClient().start_client()
