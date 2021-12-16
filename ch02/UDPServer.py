@@ -18,8 +18,8 @@ class UDPServer:
     def __init__(self):
         self.server_socket = socket(AF_INET, SOCK_DGRAM)  # 服务器socket，服务器不会主动关闭
 
-    def start_server(self):
-        self.server_socket.bind(('', __SERVER_PORT__))  # 将服务器socket与端口绑定
+    def start_server(self, port: int):
+        self.server_socket.bind(('', port))  # 将服务器socket与端口绑定
         print('server is ready to receive')
         while True:
             message, client_address = self.server_socket.recvfrom(__BUF_SIZE__)  # 从客户端监听信息
@@ -28,4 +28,4 @@ class UDPServer:
 
 
 if __name__ == '__main__':
-    UDPServer().start_server()
+    UDPServer().start_server(__SERVER_PORT__)
